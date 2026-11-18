@@ -42,6 +42,14 @@ document.querySelector(' #hero')?.append(p)
 document.querySelector('#hero')?.classList.add('dagens')
 document.querySelector('#hero')?.classList.remove('dagens')
 
+//  6
+p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">' // Attack msg appears in console and img icon in the page
+p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">' // the text appears in the page as the paragraph text
+//why you should never set `innerHTML` with text that a user or an API has written.
+// because innerhtml deals with this text as html elements and could crash the structure
+//or it could be even a javascript code that run unwanted functions or hacks
+// And thats called Cross Site Scripting XSS
+
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
