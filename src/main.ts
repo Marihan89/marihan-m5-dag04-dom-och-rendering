@@ -38,6 +38,10 @@ const p = document.createElement('p')
 p.textContent = 'Dagens tips: prova en kardemummabulle.'
 document.querySelector(' #hero')?.append(p)
 
+//  5
+document.querySelector('#hero')?.classList.add('dagens')
+document.querySelector('#hero')?.classList.remove('dagens')
+
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
