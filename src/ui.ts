@@ -14,16 +14,16 @@ import type { Ratt } from './typer'
 export function skapaRattKort(ratt: Ratt): HTMLElement {
     // TODO
     const card = document.createElement('article')
-    card.dataset.id = '1'
+    card.dataset.id = String(ratt.id)
     const image = document.createElement('img')
-    image.src = ''
+    image.src = ratt.bild ? ratt.bild : '...'
     image.alt = 'Illustration av kardemummabulle'
     const h = document.createElement('h3')
-    h.textContent = 'Kardemummabulle'
+    h.textContent = ratt.namn
     const p1 = document.createElement('p')
-    p1.textContent = 'Beskrivning'
+    p1.textContent = ratt.beskrivning ? ratt.beskrivning : null
     const p2 = document.createElement('p')
-    p2.textContent = '35'
+    p2.textContent = formateraPris(ratt.pris)
     p2.classList.add('pris')
     card.append(image)
     card.append(h)
