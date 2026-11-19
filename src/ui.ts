@@ -52,10 +52,26 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
 // 3. Sätt rubrikens text: "Meny (8 rätter)". Ett enda: "Meny (1 rätt)".
 export function uppdateraRubrik(element: HTMLElement, antal: number): void {
     // TODO
+    if (antal > 0) {
+        if (antal === 1) element.textContent = 'Meny (1 rätt)'
+        else element.textContent = 'Meny (8 rätter)'
+    }
 }
 
 // 4. Markera EN rätt som dagens rätt: klassen "dagens" ska finnas på kortet med rätt
 //    data-id, och inte på något annat kort. Anropas igen = markeringen flyttas.
 export function markeraDagensRatt(container: HTMLElement, id: number): void {
     // TODO
+
+    const exist = container.querySelector<HTMLElement>('.dagens')
+    if (exist) {
+        for (const c of container.querySelectorAll('article')) {
+            c.classList.toggle('dagens', c.dataset.id === String(id))
+        }
+    } else {
+        let card = container.querySelector<HTMLElement>(
+            `article[data-id="${id}"]`
+        )
+        card?.classList.add('dagens')
+    }
 }
