@@ -52,7 +52,22 @@ p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">' // the text a
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
-// 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
+const menucontainer = document.querySelector<HTMLElement>('#meny-lista')
+const menuheader = document.querySelector<HTMLElement>('#meny-rubrik')
+
+// 8. Anropa visaMeny med menyn,
+// och uppdateraRubrik med antalet rätter.
+
+if (menucontainer && menuheader) {
+    visaMeny(menucontainer, meny)
+    uppdateraRubrik(menuheader, meny.length)
+}
 // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
 //    och markeraDagensRatt.
+
+const lunchs = meny.filter((m) => m.kategori === 'lunch')
+const cheapestlunch = billigast(lunchs)
+if (menucontainer && cheapestlunch) {
+    markeraDagensRatt(menucontainer, cheapestlunch?.id)
+}
 // TODO
