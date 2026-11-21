@@ -43,7 +43,7 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
         for (const r of ratter) container.append(skapaRattKort(r))
     } else {
         const p = document.createElement('p')
-        p.textContent = 'Inga rätter hittades.'
+        p.textContent = 'No Dishes available Now.'
         p.classList.add('tom')
         container.append(p)
     }
